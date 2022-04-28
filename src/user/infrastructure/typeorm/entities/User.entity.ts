@@ -1,19 +1,31 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-@Entity({ name: 'Users' })
+@Entity({ name: 'users' })
 export class UserEntity {
-  @PrimaryColumn()
+  @PrimaryColumn({ type: 'varchar' })
   id: string;
 
-  @Column()
+  @Column({ type: 'varchar' })
   username: string;
 
-  @Column()
+  @Column({ type: 'varchar' })
   password: string;
 
-  @Column()
+  @Column({ type: 'varchar' })
   avatar: string;
 
-  @Column()
+  @Column({ type: 'varchar' })
   email: string;
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  created_at: Date;
+
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updated_at: Date;
 }

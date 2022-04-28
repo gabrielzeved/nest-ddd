@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { UserEntity } from '../entities/User.entity';
 
 @Injectable()
-export class UserService extends ServiceBase<UserEntity> {
+export class UserInfraService extends ServiceBase<UserEntity> {
   constructor(
     @InjectRepository(UserEntity)
     private readonly userRepo: Repository<UserEntity>,
@@ -13,11 +13,15 @@ export class UserService extends ServiceBase<UserEntity> {
     super(userRepo);
   }
 
-  async findByEmail(email: string) {
-    return await this.repo.findOne({
+  async findByEmail(email: string): Promise<UserEntity> {
+    return await this.userRepo.findOne({
       where: {
         email,
       },
     });
+  }
+
+  async create(user: UserEntity): Promise<UserEntity> {
+    return await this.add(user);
   }
 }

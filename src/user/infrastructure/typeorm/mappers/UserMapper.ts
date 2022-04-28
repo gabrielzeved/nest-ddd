@@ -1,8 +1,8 @@
-import { User } from '../domain/entities/User';
-import { UserEntity } from '../infrastructure/typeorm/entities/User.entity';
+import { User } from '../../../domain/entities/User';
+import { UserEntity } from '../entities/User.entity';
 
 export function UserEntityToDomain(entity: UserEntity) {
-  let domain = new User({ ...entity }, entity.id);
+  let domain = new User({ ...entity }, entity?.id);
   return domain;
 }
 

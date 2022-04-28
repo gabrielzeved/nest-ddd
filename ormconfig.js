@@ -7,11 +7,12 @@ module.exports = {
   password: process.env.DATABASE_PASSWORD || 'admin',
   database: process.env.DATABASE_NAME || 'test',
   entities: ["dist/**/*.entity.js"],
-  synchronize: true,
+  synchronize: false,
   logging: false,
   migrationsTableName: 'custom_migration_table',
-  migrations: ['dist/infrastructure/typeorm/migrations/*.js'],
+  migrations: ['dist/database/typeorm/migrations/*.js'],
+  useUTC: true,
   cli: {
-    migrationsDir: './migrations',
+    migrationsDir: 'src/database/typeorm/migrations',
   },
 }

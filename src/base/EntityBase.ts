@@ -1,10 +1,10 @@
-import { uuid } from 'uuidv4';
+import { v4 } from 'uuid';
 
 export abstract class EntityBase<T> {
-  constructor(props: Omit<T, 'id'>, private id?: string) {
+  constructor(props: Partial<Omit<T, 'id'>>, private id?: string) {
     Object.assign(this, props);
     if (!id) {
-      this.id = uuid();
+      this.id = v4();
     }
   }
 }

@@ -1,3 +1,16 @@
-import { User } from '../domain/entities/User';
+import { IsEmail, IsString, Length } from 'class-validator';
+export class CreateUserDTO {
+  @IsString()
+  @Length(5, 30)
+  username: string;
 
-export interface CreateUserDTO extends Omit<User, 'id'> {}
+  @IsString()
+  password: string;
+
+  @IsString()
+  avatar: string;
+
+  @IsString()
+  @IsEmail()
+  email: string;
+}
