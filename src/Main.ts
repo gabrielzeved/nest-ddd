@@ -1,11 +1,15 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './AppModule';
 import { Configurations } from './shared/config';
+import { ClassValidationPipe } from './shared/pipes/ClassValidationPipe';
 
 async function bootstrap() {
-  const { PORT } = Configurations;
+  const { port } = Configurations;
 
   const app = await NestFactory.create(AppModule);
-  await app.listen(PORT);
+
+  app.useGlobalPipes(new ClassValidationPipe())
+
+  await app.listen(port);
 }
 bootstrap();

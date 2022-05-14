@@ -17,6 +17,12 @@ export class UserRepository implements IUserRepository {
     return UserEntityToDomain(userEntity);
   }
 
+  async findByUsername(username: string): Promise<User> {
+    const userEntity = await this.userService.findByUsername(username);
+    if (!userEntity) return undefined;
+    return UserEntityToDomain(userEntity);
+  }
+
   async create(user: User): Promise<User> {
     const userEntity = await this.userService.add(UserDomainToEntity(user));
     return UserEntityToDomain(userEntity);

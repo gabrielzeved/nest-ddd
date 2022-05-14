@@ -21,6 +21,14 @@ export class UserInfraService extends ServiceBase<UserEntity> {
     });
   }
 
+  async findByUsername(username: string): Promise<UserEntity> {
+    return await this.userRepo.findOne({
+      where: {
+        username,
+      },
+    });
+  }
+
   async create(user: UserEntity): Promise<UserEntity> {
     return await this.add(user);
   }

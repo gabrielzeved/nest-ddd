@@ -9,4 +9,4 @@ import { UserInfraService } from './typeorm/services/UserInfraService';
   providers: [UserRepoProvider, UserInfraService],
   exports: [UserRepoProvider, UserInfraService],
 })
-export class InfrastructureModule {}
+export class UserInfrastructureModule {}

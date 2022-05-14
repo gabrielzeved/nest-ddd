@@ -3,6 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   PrimaryColumn,
+  Unique,
   UpdateDateColumn,
 } from 'typeorm';
 
@@ -11,7 +12,7 @@ export class UserEntity {
   @PrimaryColumn({ type: 'varchar' })
   id: string;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', unique: true })
   username: string;
 
   @Column({ type: 'varchar' })
