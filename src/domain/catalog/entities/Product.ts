@@ -7,7 +7,6 @@ export class Product extends EntityBase<Product> {
   description?: string;
   items: SKU[]
 
-
   constructor(
     props: Omit<Product, 'id' | 'created_at' | 'updated_at'>,
     id?: string,
