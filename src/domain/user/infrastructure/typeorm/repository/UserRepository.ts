@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {
   UserDomainToEntity,
   UserEntityToDomain,
-} from 'src/user/infrastructure/typeorm/mappers/UserMapper';
+} from 'src/domain/user/infrastructure/typeorm/mappers/UserMapper';
 import { User } from '../../../domain/entities/User';
 import { IUserRepository } from '../../../domain/repository/IUserRepository';
 import { UserInfraService } from '../services/UserInfraService';

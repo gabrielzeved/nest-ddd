@@ -3,8 +3,8 @@ import { UserByLoginCommand } from "../../../../user/application/commands/UserBy
 import { Authentication } from "../../../domain/entities/Authentication";
 import { AuthenticableResponse, AuthService } from "../../../domain/service/AuthService";
 import * as bcrypt from 'bcrypt';
-import { Configurations } from "../../../../shared/config";
 import * as jwt from 'jsonwebtoken';
+import { Configurations } from "../../../../../shared/config";
 
 @Injectable()
 export class InternalAuth implements AuthService{
