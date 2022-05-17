@@ -8,24 +8,11 @@ import { ICategoryRepository } from "../../../repository/ICategoryRepository";
 const CategoryRepo = () => Inject('CategoryRepo');
 
 @Injectable()
-export class CreateCategoryCommand {
+export class GetCategoryTreeCommand {
   constructor(@CategoryRepo() private readonly repository: ICategoryRepository) {}
 
-  public async create(createDTO: CreateCategoryDTO){
-
-    let parent = undefined;
-
-    if(createDTO.parentId){
-      parent = await this.repository.findById(createDTO.parentId);
-
-      if(!parent) throw new CategoryException.DoesNotExists();
-    }
-
-    return this.repository.create(new Category({
-      ...createDTO,
-      children: [],
-      parent
-    }))
+  public async getTree(){
+    return this.repository.getTree();
   }
 
 }

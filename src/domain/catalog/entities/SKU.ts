@@ -1,4 +1,5 @@
 import { EntityBase } from "../../../base/EntityBase";
+import { Product } from "./Product";
 
 export class SKU extends EntityBase<SKU>{
 
@@ -6,6 +7,7 @@ export class SKU extends EntityBase<SKU>{
   variant: string;
   price: number;
   avaiableQuantity: number;
+  product: Product
 
   constructor(
     props: Omit<SKU, 'id' | 'created_at' | 'updated_at'>,

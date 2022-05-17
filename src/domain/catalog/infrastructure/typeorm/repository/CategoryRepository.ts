@@ -13,7 +13,7 @@ export class CategoryRepository implements ICategoryRepository {
   }
   
   async findById(id: string): Promise<Category> {
-    return await this.findById(id);
+    return await this.service.find(id);
   }
   
   async getTree(): Promise<Category[]> {

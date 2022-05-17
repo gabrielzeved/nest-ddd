@@ -3,7 +3,7 @@ import { FindConditions, FindManyOptions, Repository } from 'typeorm';
 export abstract class ServiceBase<T> {
   constructor(protected repo: Repository<T>) {}
 
-  async find(id: number): Promise<T> {
+  async find(id: string): Promise<T> {
     return await this.repo.findOne(id);
   }
 
@@ -11,7 +11,7 @@ export abstract class ServiceBase<T> {
     return await this.repo.find(options);
   }
 
-  async delete(id: number): Promise<boolean> {
+  async delete(id: string): Promise<boolean> {
     const deleteResult = await this.repo.delete(id);
     return deleteResult.affected > 0;
   }
@@ -25,7 +25,7 @@ export abstract class ServiceBase<T> {
     return insertResult;
   }
 
-  async update(id: number, t: T): Promise<boolean> {
+  async update(id: string, t: T): Promise<boolean> {
     const updateResult = await this.repo.update(id, t);
     return updateResult.affected > 0;
   }

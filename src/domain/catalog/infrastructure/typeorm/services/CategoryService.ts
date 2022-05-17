@@ -16,7 +16,8 @@ export class CategoryService extends ServiceBase<CategoryEntity> {
 
   async findTree(depth ?: number){
     return await this.repo.findTrees({
-      depth
+      depth,
+      relations: ['children']
     })
   }
 
